@@ -1,0 +1,351 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Introduction &#8212; MapMint data collection - MapMint4ME</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Table modules" href="tables.html" />
+    <link rel="prev" title="MapMint data collection - MapMint4ME" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tables.html" title="The Table modules"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="MapMint data collection - MapMint4ME"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Workshop</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<span id="userguidegeneral"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a-brief-overview">
+<h2>A brief overview<a class="headerlink" href="#a-brief-overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general-presentation">
+<h3>General presentation<a class="headerlink" href="#general-presentation" title="Permalink to this headline">¶</a></h3>
+<p>MapMint4ME means MapMint 4 (for) Measure and Evaluation,
+It is an Android application which allows you to edit geolocated data
+in online or offline mode.</p>
+<p>MapMint4ME requires to connect to a MapMint server with tables
+configured as editable. Once those tables are available, users can
+then view, edit and produce reports online using the MapMint tables
+modules or record data on the field from the MapMint4ME Android
+Application.</p>
+<dl class="docutils">
+<dt>Using MapMint4ME application to record data on the field from your Android phone or tablet is as easy as:</dt>
+<dd><ol class="first last arabic simple">
+<li><strong>import</strong>: connect to MapMint server and download a local copy of the data structure within the application to record data on the field,</li>
+<li><strong>edit</strong>/<strong>view</strong>: record your data then view recorded attributes in case you need it,</li>
+<li><strong>export</strong>: upload the recorded data back in the table of the MapMint server.</li>
+</ol>
+</dd>
+</dl>
+<p>In case you would like to get access to “maps” during your offline
+data recording, then you should use MapMint tools to produce tiles
+manually.</p>
+<p>The schema below summarize the MapMint4ME mechanisms detailed in the
+next sections.</p>
+<p><a class="reference internal" href="_images/mm4me_schema.svg"><img alt="MM4ME Schema" height="600" src="_images/mm4me_schema.svg" width="50%" /></a></p>
+</div>
+<div class="section" id="mapmint-table-module">
+<h3>MapMint Table module<a class="headerlink" href="#mapmint-table-module" title="Permalink to this headline">¶</a></h3>
+<p>MapMint Table module is composed of an administration interface which
+permits to configure some PostgreSQL tables as editable online and a
+client interface where users can identify himself to view, edit and
+produce a report about the data.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><em>MapMint Table Admin</em></td>
+<td><em>MapMint Table Client</em></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="_images/mmtablea.png"><img alt="MM admin" src="_images/mmtablea.png" style="width: 100%;" /></a></td>
+<td><a class="reference internal" href="_images/mmtablec.png"><img alt="MM client" src="_images/mmtablec.png" style="width: 100%;" /></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://demo.mapmint.com/ui/Tables_bs">http://demo.mapmint.com/ui/Tables_bs</a></td>
+<td><a class="reference external" href="http://demo.mapmint.com/ui/public/tables/">http://demo.mapmint.com/ui/public/tables/</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mapmint4me-android-application">
+<h3>MapMint4ME Android application<a class="headerlink" href="#mapmint4me-android-application" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="importing">
+<h4>1. Importing<a class="headerlink" href="#importing" title="Permalink to this headline">¶</a></h4>
+<p>As said in the introduction, MapMint4ME relies on the MapMint
+server. This last has the responsibility to provide the data to be
+recorded on the field with or without internet connectivity. MapMint
+uses a PostgreSQL database to store the data on the server side when
+the MapMint4ME Android application uses an SQLite database. Hence, the
+MapMint server provides a WPS Service able to convert the PostgreSQL
+database into SQLite one.</p>
+<p>If on the server side there is only one PostgreSQL database to store
+all tables in a centralized manner, the conversion process generates
+two databases: one to store the data and another one the forms
+configuration and dependency tables, used for storing data displayed
+in the selection list. We have split the database for lowering the
+size of the database to upload back to the MapMint server.</p>
+<p>The MapMint4ME Android application can download another database used
+to access a set of Tiles corresponding to the extent of your recording
+session.</p>
+</div>
+<div class="section" id="recording">
+<h4>2. Recording<a class="headerlink" href="#recording" title="Permalink to this headline">¶</a></h4>
+<p>You can record and visualize data on the field by using the Edit, View
+and Map modules. The Edit module gives you the capability to edit all
+tables configured as editable by a group of users. The View module
+gives you access to a similar display as you can get from the MapMint
+Table module online, meaning that you can view a list of available
+tuples in tables. The Map module gives you a way to visualize your
+recorded data on a basic map presenting recorded points, lines and
+polygons.</p>
+</div>
+<div class="section" id="exporting">
+<h4>3. Exporting<a class="headerlink" href="#exporting" title="Permalink to this headline">¶</a></h4>
+<p>After the field work is over and you get wifi connection (or 4G signal
+strong enough) then you can upload the data back on the MapMint
+server, you use the MapMint4ME Export module.</p>
+<p>At this step, the MapMint server will have the responsibility to
+extract data recorded on the field and convert it from SQLite to
+PostgreSQL formats. As said earlier, only the recorded data will be
+uploaded back but not the dependencies tables or the configuration
+ones. At usage, during the Senegalese project for which we have
+created this MapMint4ME Android application, we realized that
+sometimes the dependencies tables are too big to be uploaded back to
+the server.</p>
+</div>
+</div>
+</div>
+<div class="section" id="the-workshop-content">
+<h2>The workshop content<a class="headerlink" href="#the-workshop-content" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="schedule">
+<h3>Schedule<a class="headerlink" href="#schedule" title="Permalink to this headline">¶</a></h3>
+<p>During this workshop, you will get introduced to the basic
+configuration required for activating the Table module from MapMint to
+build forms to edit data online and from MapMint4ME. Then, you will
+install the MapMint4ME Android application on your phone or tablet and
+get it ready for data collection. Afterward, you will go outside and
+map the area around the workshop building. After 1/2h of recording,
+you will come back to the workshop room and upload the data back to
+the MapMint server. Using this data, you will publish a new project to
+give access to your data.</p>
+<p>All along the workshop, you will use the demo server, available at
+<a class="reference external" href="https://demo.mapmint.com/ui/Dashboard_bs">https://demo.mapmint.com/ui/Dashboard_bs</a>, rather than your own, using
+the following information: login: <strong>wsadmin</strong> / password:
+<strong>demo2019</strong>. It will ease the connection settings from MapMint4ME
+Android application, tables creation and configuration of the edition
+forms. Accessorily, it will also permit to share the data recorded by
+every team on the same server.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please, at any time, do not hesitate to ask the presenters any
+question you have during the workshop.</p>
+</div>
+<p>Before going any further, you have to figure out what shall be the
+final forms that we are willing to use for going on the field for data
+collection. Bellow, you can see the definition of what the final form
+should be.</p>
+<p>You will create one form for the three different vector datatypes:
+points, lines, and polygons with the following attributes
+respectively.</p>
+<p><strong>wsxpoints</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column</th>
+<th class="head">Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>varchar(50)</td>
+</tr>
+<tr class="row-odd"><td>category</td>
+<td>integer (refering to a categories table)</td>
+</tr>
+<tr class="row-even"><td>description</td>
+<td>text (HTML content)</td>
+</tr>
+<tr class="row-odd"><td>photo</td>
+<td>bytea</td>
+</tr>
+<tr class="row-even"><td>geometry</td>
+<td>point</td>
+</tr>
+</tbody>
+</table>
+<p><strong>wsxlines</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column</th>
+<th class="head">Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>varchar(50)</td>
+</tr>
+<tr class="row-odd"><td>category</td>
+<td>integer (refering to a categories table)</td>
+</tr>
+<tr class="row-even"><td>description</td>
+<td>text (HTML content)</td>
+</tr>
+<tr class="row-odd"><td>geometry</td>
+<td>line</td>
+</tr>
+</tbody>
+</table>
+<p><strong>wsxpolygons</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column</th>
+<th class="head">Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>varchar(50)</td>
+</tr>
+<tr class="row-odd"><td>category</td>
+<td>integer (refering to a categories table)</td>
+</tr>
+<tr class="row-even"><td>description</td>
+<td>text (HTML content)</td>
+</tr>
+<tr class="row-odd"><td>geometry</td>
+<td>polygon</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pre-requisites">
+<h3>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h3>
+<p>You will need to create the tables to store the data you want to allow
+your users to edit on the field. To do so, you are invited to load the
+Distiller module and click on the <em>mmdb</em> DataStore to view the list of
+available DataSources.</p>
+<p>From any of the layer listed, you can use the <a class="reference external" href="/ZOOProject.pdf"><img alt="MapMint OGRO2GR" class="align-bottom" src="_images/process.png" style="width: 20px;" /></a> button to access
+the tool for converting vector. From this tool, select <em>mmdb</em> as
+DataStore then, copy and paste the following SQL queries:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>-- Create table wsXpoints
+CREATE TABLE sample.wsXpoints (
+  id serial PRIMARY KEY,
+  name varchar(50),
+  category int4 references sample.categories(id),
+  description text,
+  photo bytea
+);
+SELECT AddGeometryColumn
+  (&#39;sample&#39;,&#39;wsxpoints&#39;,&#39;wkb_geometry&#39;,4326,&#39;POINT&#39;,2);
+-- Create table wsXlines
+CREATE TABLE sample.wsXlines (
+  id serial PRIMARY KEY,
+  name varchar(50),
+  category int4 references sample.categories(id),
+  description text
+);
+SELECT AddGeometryColumn
+  (&#39;sample&#39;,&#39;wsxlines&#39;,&#39;wkb_geometry&#39;,4326,&#39;LINESTRING&#39;,2);
+-- Create table wsXpolygons
+CREATE TABLE sample.wsXpolygons (
+  id serial PRIMARY KEY,
+  name varchar(50),
+  category int4 references sample.categories(id),
+  description text
+);
+SELECT AddGeometryColumn
+  (&#39;sample&#39;,&#39;wsxpolygons&#39;,&#39;wkb_geometry&#39;,4326,&#39;POLYGON&#39;,2);
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a-brief-overview">A brief overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-presentation">General presentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mapmint-table-module">MapMint Table module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mapmint4me-android-application">MapMint4ME Android application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-workshop-content">The workshop content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#schedule">Schedule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tables.html">The Table modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mm4me.html">The MapMint4ME data collector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmap.html">Applications with recorded data</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tables.html" title="The Table modules"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="MapMint data collection - MapMint4ME"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Workshop</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    </div>
+  </body>
+</html>
